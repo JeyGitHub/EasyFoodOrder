@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EasyFoodOrder.Common.DataAccess\EasyFoodOrder.Common.DataAccess.csproj" />
+    <ProjectReference Include="..\EasyFoodOrder.Common.Dto\EasyFoodOrder.Common.Dto.csproj" />
+  </ItemGroup>
+
+</Project>
