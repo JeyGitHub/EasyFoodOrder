@@ -1,4 +1,31 @@
 main {
     width: 80%;
     margin: 1rem auto;
+    background-color: #696969;
+}
+
+.search-form-field, .restaurant-items {
+    width: 100%;
+    margin: 30px 40px;
+}
+
+::ng-deep .mat-form-field-label{
+    color: white !important;
+}
+
+.search-icon {
+    cursor: pointer;
+}
+
+mat-spinner {
+    margin: 0 auto;
+}
+
+.restaurant-item {
+    margin-bottom: 30px;
+}
+
+.order-btn {
+    width: 100%;
+    margin: 30px 40px;
 }
