@@ -1,7 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
+import { DialogComponent } from './dialog/dialog.component';
 import { OrderItem } from './models/order-item-model';
 import { Restaurant } from './models/restaurant.model';
+import { OrderService } from './services/order.service';
 import { RestaurantService } from './services/restaurant.service';
 
 @Component({
@@ -19,10 +22,21 @@ export class AppComponent implements OnInit, OnDestroy {
   public orderButtonCaption = "Order"
   public orderItems: OrderItem[] = [];
   private restaurantsReceivedSub: Subscription;
+  private orderCreatedSub: Subscription;
 
-  constructor(private restaurantService: RestaurantService) { }
+  constructor(private restaurantService: RestaurantService,
+    private orderService: OrderService,
+    private dialog: MatDialog) { }
 
   public async ngOnInit(): Promise<void> {
+    this.orderCreatedSub = this.orderService.getOrderCreatedObservable()
+    .subscribe((id: number) => {
+      this.showOrderCreatedDialog();
+      this.orderItems = [];
+      this.totalOrderCost = 0;
+      this.isLoading = false;
+    });
+
     this.restaurantsReceivedSub = this.restaurantService.getRestaurantsReceivedObservable()
       .subscribe((data: { restaurants: Restaurant[] }) => {
         this.isLoading = true;
@@ -35,10 +49,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public onSearch(): void {
     this.isLoading = true;
-
-    // TODO
-    this.searchInput = "Taco In Cape Town";
-
     let isFilteredSearch: boolean = false;
     if (this.searchInput) {
       const separator = " in ";
@@ -76,7 +86,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private updateOrderBtnCaption(): void {
     if (this.totalOrderCost > 0) {
-      this.orderButtonCaption = `Order - R${Math.round((this.totalOrderCost + Number.EPSILON) * 100) / 100}`;
+      const totalOrderCostRound = Math.round((this.totalOrderCost + Number.EPSILON) * 100) / 100;
+      this.orderButtonCaption = `Order - R${totalOrderCostRound}`;
     } else {
       this.orderButtonCaption = "Order";
     }
@@ -90,9 +101,23 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
+  public onSaveBtnClick(): void {
+    this.isLoading = true;
+    this.orderService.createOrder(this.orderItems);
+  }
+
+  private showOrderCreatedDialog(): void {
+    this.dialog.open(DialogComponent, {
+      width: "250px"
+    })
+  }
+
   public ngOnDestroy(): void {
     if (this.restaurantsReceivedSub) {
       this.restaurantsReceivedSub.unsubscribe();
+    }
+    if (this.orderCreatedSub) {
+      this.orderCreatedSub.unsubscribe();
     }
   }
 }

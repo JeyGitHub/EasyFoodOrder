@@ -2,6 +2,7 @@
 using System.Linq;
 using EasyFoodOrder.Common.DataAccess;
 using EasyFoodOrder.Common.DataAccess.Models;
+using EasyFoodOrder.Common.DataAccess.Models.Restaurant;
 
 namespace EasyFoodOrder.Services.Restaurant
 {
@@ -17,7 +18,12 @@ namespace EasyFoodOrder.Services.Restaurant
 
         private IEnumerable<RestaurantModel> FilterRestaurantData(IEnumerable<RestaurantModel> restaurants, string dish, string city)
         {
-            if (restaurants != null && !string.IsNullOrEmpty(dish) && !string.IsNullOrEmpty(city))
+            if (restaurants == null)
+            {
+                return new List<RestaurantModel>();
+            }
+
+            if (!string.IsNullOrEmpty(dish) && !string.IsNullOrEmpty(city))
             {
                 dish = dish.ToLower().Trim();
                 city = city.ToLower().Trim();
@@ -82,7 +88,7 @@ namespace EasyFoodOrder.Services.Restaurant
                     .ThenByDescending(x => x.Rank);
             }
 
-            return restaurants;
+            return restaurants.OrderByDescending(x => x.Rank);
         }
     }
 }

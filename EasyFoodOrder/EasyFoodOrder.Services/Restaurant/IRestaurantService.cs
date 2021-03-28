@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using EasyFoodOrder.Common.DataAccess.Models;
+using EasyFoodOrder.Common.DataAccess.Models.Restaurant;
 
 namespace EasyFoodOrder.Services.Restaurant
 {

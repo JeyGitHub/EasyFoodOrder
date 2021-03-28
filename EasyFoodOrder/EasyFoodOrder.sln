@@ -11,13 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyFoodOrder.Api.Restaurant", "EasyFoodOrder.Api.Restaurant\EasyFoodOrder.Api.Restaurant.csproj", "{7B6E745A-10E2-4867-B723-91BD295A63C8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyFoodOrder.Services.Restaurant", "EasyFoodOrder.Services.Restaurant\EasyFoodOrder.Services.Restaurant.csproj", "{1DC60683-E8E9-4624-8F3C-75844C23886D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyFoodOrder.Services", "EasyFoodOrder.Services\EasyFoodOrder.Services.csproj", "{1DC60683-E8E9-4624-8F3C-75844C23886D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{62189E2A-2C6E-4692-9FC5-B9BAC7D1E36C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyFoodOrder.Common.Dto", "EasyFoodOrder.Common.Dto\EasyFoodOrder.Common.Dto.csproj", "{24CC2CE2-9210-4459-98B0-59F1F16EEC65}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyFoodOrder.Common.DataAccess", "EasyFoodOrder.Common.DataAccess\EasyFoodOrder.Common.DataAccess.csproj", "{1CBFB97D-71EC-460C-90B9-257D1EB4236C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyFoodOrder.Common.DataAccess", "EasyFoodOrder.Common.DataAccess\EasyFoodOrder.Common.DataAccess.csproj", "{1CBFB97D-71EC-460C-90B9-257D1EB4236C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +29,6 @@ Global
 		{1DC60683-E8E9-4624-8F3C-75844C23886D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DC60683-E8E9-4624-8F3C-75844C23886D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DC60683-E8E9-4624-8F3C-75844C23886D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{24CC2CE2-9210-4459-98B0-59F1F16EEC65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{24CC2CE2-9210-4459-98B0-59F1F16EEC65}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{24CC2CE2-9210-4459-98B0-59F1F16EEC65}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{24CC2CE2-9210-4459-98B0-59F1F16EEC65}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1CBFB97D-71EC-460C-90B9-257D1EB4236C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1CBFB97D-71EC-460C-90B9-257D1EB4236C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CBFB97D-71EC-460C-90B9-257D1EB4236C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -48,7 +40,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{7B6E745A-10E2-4867-B723-91BD295A63C8} = {C33DE0E7-91B1-41C4-8E6E-E209D41B4ECD}
 		{1DC60683-E8E9-4624-8F3C-75844C23886D} = {4F5EC52C-9839-4AA3-BF93-805C6233841E}
-		{24CC2CE2-9210-4459-98B0-59F1F16EEC65} = {62189E2A-2C6E-4692-9FC5-B9BAC7D1E36C}
 		{1CBFB97D-71EC-460C-90B9-257D1EB4236C} = {760A74FF-2999-4423-B3EE-5BF3BEBB43BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

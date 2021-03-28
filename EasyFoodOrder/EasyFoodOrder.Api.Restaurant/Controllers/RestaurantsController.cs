@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
-using EasyFoodOrder.Common.DataAccess.Models;
 using EasyFoodOrder.Services.Restaurant;
 
 namespace EasyFoodOrder.Api.Restaurant.Controllers

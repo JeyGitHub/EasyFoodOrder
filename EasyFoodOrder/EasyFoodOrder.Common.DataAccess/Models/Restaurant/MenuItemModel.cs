@@ -1,4 +1,4 @@
-﻿namespace EasyFoodOrder.Common.DataAccess.Models
+﻿namespace EasyFoodOrder.Common.DataAccess.Models.Restaurant
 {
     public class MenuItemModel
     {

@@ -25,7 +25,7 @@
       </div>
     </div>
     <div fxLayout="row" fxLayoutAlign="space-between">
-      <button [disabled]="totalOrderCost &lt;= 0" mat-raised-button color="accent" class="order-btn">{{ orderButtonCaption }}</button>
+      <button (click)="onSaveBtnClick()" [disabled]="totalOrderCost &lt;= 0" mat-raised-button color="accent" class="order-btn">{{ orderButtonCaption }}</button>
     </div>
   </div>
 </main>

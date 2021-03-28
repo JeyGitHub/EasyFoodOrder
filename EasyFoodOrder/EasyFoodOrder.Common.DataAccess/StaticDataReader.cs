@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using EasyFoodOrder.Common.DataAccess.Models;
+using EasyFoodOrder.Common.DataAccess.Models.Restaurant;
 using Newtonsoft.Json;
 
 namespace EasyFoodOrder.Common.DataAccess
