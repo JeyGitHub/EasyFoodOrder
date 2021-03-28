@@ -1,8 +1,8 @@
-﻿using System.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 
-namespace EasyFoodOrder.Api.Restaurant.Migrations
+namespace EasyFoodOrder.Common.DataAccess.Migrations
 {
-    public static class Database
+    public class Database
     {
         public static void EnsureDatabase(string connectionString)
         {

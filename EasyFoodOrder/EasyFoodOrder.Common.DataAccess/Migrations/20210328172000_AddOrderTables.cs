@@ -1,6 +1,6 @@
 ﻿using FluentMigrator;
 
-namespace EasyFoodOrder.Api.Restaurant.Migrations
+namespace EasyFoodOrder.Common.DataAccess.Migrations
 {
     [Migration(20210328172000)]
     public class AddOrderTables: ForwardOnlyMigration

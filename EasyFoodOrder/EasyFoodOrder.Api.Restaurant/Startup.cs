@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
-using EasyFoodOrder.Api.Restaurant.Migrations;
 using EasyFoodOrder.Common.DataAccess.Database;
+using EasyFoodOrder.Common.DataAccess.Migrations;
 using EasyFoodOrder.Services.Order;
 using EasyFoodOrder.Services.Restaurant;
 using FluentMigrator.Runner;
@@ -31,9 +31,10 @@ namespace EasyFoodOrder.Api.Restaurant
             services.AddFluentMigratorCore()
                 .ConfigureRunner(options =>
                 {
+                    var assembly = typeof(Database).Assembly;
                     options.AddSqlServer()
                         .WithGlobalConnectionString(connectionString)
-                        .ScanIn(Assembly.GetExecutingAssembly())
+                        .ScanIn(assembly)
                         .For.All();
                 }).AddLogging(options =>
                 {
