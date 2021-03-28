@@ -3,24 +3,29 @@
   <div class="container">
     <div fxLayout="row" fxLayoutAlign="space-between">
       <mat-form-field class="search-form-field">
-        <input (keydown.enter)="onSearch()" matInput type="search" placeholder="Please search here" class="search-input">
+        <input (keydown.enter)="onSearch()" [(ngModel)]='searchInput' matInput type="search" placeholder="Please search here" class="search-input">
         <mat-icon matSuffix (click)="onSearch()" class="search-icon">search</mat-icon>
       </mat-form-field>
     </div>
     <div fxLayout="row" fxLayoutAlign="space-between">
-      <div class="restaurant-items" *ngIf="!isLoading">
-        <div class="restaurant-item" *ngFor="let item of restaurants">
-          <restaurant-item [restaurant]="item"></restaurant-item>
-        </div>
-      </div>
-      <div *ngIf="isLoading">
+      <div class="no-search-result-caption" *ngIf="!isLoading && searchInput && restaurants.length === 0">
         <p>No restaurants found by your conditions</p>
       </div>
     </div>
     <div fxLayout="row" fxLayoutAlign="space-between">
-      <div class="order-btn" fxLayout="row" fxLayoutAlign="space-between">
-        <button mat-raised-button color="accent">Order</button>
-      </div>  
+      <div class="search-result-caption" *ngIf="!isLoading && searchInput && restaurants.length > 0">
+        <p class="search-result-label"><strong>{{ dish }}</strong> restaurants in <strong>{{ city }}</strong> we found for you:</p>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <div class="restaurant-items" *ngIf="!isLoading">
+        <div class="restaurant-item" *ngFor="let item of restaurants">
+          <restaurant-item [restaurant]="item" (orderItemChanged)="addOrderItem($event)"></restaurant-item>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <button [disabled]="totalOrderCost &lt;= 0" mat-raised-button color="accent" class="order-btn">{{ orderButtonCaption }}</button>
     </div>
   </div>
 </main>

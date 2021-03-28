@@ -20,9 +20,13 @@ export class RestaurantService {
         return this.httpService.get<Restaurant[]>(`${environment.apiUrl}/api/restaurants`).toPromise();
     }
 
-    public getRestaurants(): void {
-        this.httpService.get(`${environment.apiUrl}/api/restaurants`)
-            .subscribe((restaurants: Restaurant[]) => {
+    public getRestaurants(dish: string = null, city: string = null): void {
+        let apiUrl: string = `${environment.apiUrl}/api/restaurants`;
+        if (dish && city) {
+            apiUrl = apiUrl + `?dish=${dish}&city=${city}`;
+        }
+        this.httpService.get(apiUrl)
+            .subscribe((restaurants: any) => {
                 this.restaurantsReceivedSub.next({ restaurants });
             });
     }

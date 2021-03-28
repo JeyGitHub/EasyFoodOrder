@@ -1,7 +1,10 @@
-﻿namespace EasyFoodOrder.Services.Restaurant
+﻿using System.Collections.Generic;
+using EasyFoodOrder.Common.DataAccess.Models;
+
+namespace EasyFoodOrder.Services.Restaurant
 {
     public interface IRestaurantService
     {
-        string GetData();
+        IEnumerable<RestaurantModel> GetRestaurantData(string dish, string city);
     }
 }

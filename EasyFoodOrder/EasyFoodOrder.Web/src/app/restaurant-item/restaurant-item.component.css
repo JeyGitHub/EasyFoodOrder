@@ -16,3 +16,17 @@
     font-size: 1rem;
     color: white;
 }
+
+.category-caption {
+    margin-bottom: 0;
+}
+
+.empty-category {
+    margin-top: 5px;
+    margin-left: 50px;
+}
+
+.filled-category {
+    margin-top: 5px;
+    margin-left: 90px;
+}

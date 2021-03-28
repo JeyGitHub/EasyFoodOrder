@@ -1,4 +1,14 @@
 <div class="restaurant-wrapper">
-    <img [src]="'assets' + restaurant.LogoPath" alt="" class="restaurant-logo">
-    <span class="restaurant-caption">{{ restaurant.Name }} - {{ restaurant.Suburb }} - rated #{{ restaurant.Rank }} overall</span>
+    <img [src]="'assets' + restaurant.logoPath" alt="" class="restaurant-logo">
+    <span class="restaurant-caption">{{ restaurant.name }} - {{ restaurant.suburb }} - rated #{{ restaurant.rank }} overall</span>
+    <div *ngFor="let category of restaurant.categories">
+        <div [ngClass]="(category.name.length === 0) ? 'empty-category': 'filled-category'">
+            <h2 class="category-caption" *ngIf="category.name.length > 0">{{ category.name }}</h2>
+            <div *ngFor="let menuItem of category.menuItems">
+                <mat-checkbox color="primary" (change)="onCheckboxStateChanged($event)" [price]="menuItem.price" [menuItemId]="menuItem.id" [restaurantId]="restaurant.id">
+                    {{ menuItem.name }} - R{{ menuItem.price }}
+                </mat-checkbox>
+            </div>
+        </div>
+    </div>
 </div>

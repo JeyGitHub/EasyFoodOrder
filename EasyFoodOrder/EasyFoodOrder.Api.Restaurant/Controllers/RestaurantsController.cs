@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
+using EasyFoodOrder.Common.DataAccess.Models;
 using EasyFoodOrder.Services.Restaurant;
 
 namespace EasyFoodOrder.Api.Restaurant.Controllers
@@ -20,10 +21,9 @@ namespace EasyFoodOrder.Api.Restaurant.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get([FromQuery]string dish, [FromQuery]string city)
         {
-            string data = _restaurantService.GetData();
-            return Ok(data);
+            return Ok(_restaurantService.GetRestaurantData(dish, city));
         }
     }
 }

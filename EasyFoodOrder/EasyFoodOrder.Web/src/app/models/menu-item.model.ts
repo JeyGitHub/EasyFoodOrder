@@ -1,5 +1,5 @@
 export class MenuItem {
-    public Id: number;
-    public Name: string;
-    public Price: number;
+    public id: number;
+    public naame: string;
+    public price: number;
 }

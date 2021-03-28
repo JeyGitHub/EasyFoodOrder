@@ -1,6 +1,6 @@
 import { MenuItem } from "./menu-item.model";
 
 export class Category {
-    public Name: string;
-    public MenuItems: MenuItem[];
+    public name: string;
+    public menuItems: MenuItem[];
 }

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule }   from '@angular/common/http';
-
 import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,6 +11,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { RestaurantService } from './services/restaurant.service';
 import { RestaurantItemComponent } from './restaurant-item/restaurant-item.component';
+import { FormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -22,13 +23,15 @@ import { RestaurantItemComponent } from './restaurant-item/restaurant-item.compo
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatCheckboxModule
   ],
   providers: [RestaurantService],
   bootstrap: [AppComponent]
